@@ -6,3 +6,12 @@ RSpec.configure do|config|
   config.tty = true
   config.formatter = :documentation
 end
+
+open_browser
+  @b = Watir::Browser.new :firefox
+  @b.goto "nationalrail.co.uk"
+end
+
+close_browser
+  @b.close
+end
