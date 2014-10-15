@@ -25,3 +25,13 @@ end
 def confirm_journey
   @b.button(:class, SEARCH_BTN).click
 end
+
+def set_no_of_passengers num_of_passengers
+  @b.span(:class, 't').click # reveals the number of passengers option
+    
+  @b.select_list(:id, 'adults').select_value(num_of_passengers.to_s)
+end
+
+def click_first_matching_journey_result
+  @b.label(:class, 'opsingle').input(:value, '4-2-1-s').click
+end
