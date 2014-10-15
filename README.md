@@ -1,6 +1,6 @@
 # National Rail Test Suite
 
-This is a suite of tautomated tests for the national rail website written uusing RSpec and Watir.
+This is a suite of automated tests for the national rail website written uusing RSpec and Watir.
 
 ## Brief
 
