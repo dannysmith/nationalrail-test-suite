@@ -21,3 +21,7 @@ def enter_destinations from, to
   @b.text_field(:id, 'txtFrom').set(from)
   @b.text_field(:id, 'txtTo').set(to)
 end
+
+def confirm_journey
+  @b.button(:class, SEARCH_BTN).click
+end
