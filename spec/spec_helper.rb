@@ -1,5 +1,6 @@
 require 'rspec'
-require 'watir'
+
+SEARCH_BTN = "b-y lrg rgt not-IE6"
 
 RSpec.configure do|config|
   config.color = true
