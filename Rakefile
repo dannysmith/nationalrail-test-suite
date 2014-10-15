@@ -1,1 +1,3 @@
-# Rakefile
+task :tests do
+  system 'rspec'
+end
