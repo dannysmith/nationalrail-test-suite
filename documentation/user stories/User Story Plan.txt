@@ -1,0 +1,78 @@
+Arrivals/ Departures
+-As someone with a flexible work schedule
+-I want to be able to check live arrivals / departures
+-So that I can plan my train journeys accordingly
+
+AC
+-Have the ability to allow you to search for any valid UK train station
+-Live arrivals should provide information on all trains, which station they departed from and their corresponding arrival times
+-Live departures should provide information on the final destination of departing train, along with the corresponding departure times
+
+
+Buy Ticket
+-As someone in a long distant relationship
+-I want to be able to buy a return ticket online
+-So that I can travel to and from my girlfriend's town
+
+AC
+-Ability to chose any start and end destination
+-ticket type, time and date and prices 
+
+
+Buy Multiple Tickets
+-As a leader of a hiking group
+-I want to be abel to buy tickets for multiple people
+-So that we can manage ticket bookings for our group
+
+AC
+- A user cannot submit the form without completing all mandatory fiels
+- A user can submit between 2 - 8 tickets to be purchased
+- Payment can be made via credit card
+- An email cofirmation is sent to the user after form submission
+
+
+Special Offers
+-As a poor student
+-I want to be able to view special offers
+-So that I am able to save money when travelling by train
+
+AC
+-Should be clearly presented on website
+-Special offers should all be in date
+
+Season Tickets
+-As someone who commutes regularly to work
+-I want to be able to buy season tickets
+-So that I can save money and not have to buy tickets everyday
+
+AC
+- should be able to choose from ticket types - 7day, 1month, year 
+
+Itinerary
+-As a foreign tourist
+-I want to be able to create and print a journey itinerary
+-So that I can organise my journey with prior preparation
+
+AC
+- Have option to choose any uK location
+- Have option to create a journey
+- Have option to print itinerary
+
+Rail Disruptions
+-As a trainer
+-I want to know if there are any rail disruptions
+-So that I can know whether my journey will be affected in any way
+
+AC
+-Should be able to view a list of disruptions
+-Should be able to show disruptions for selected routes
+
+Logging in
+-As a registered user
+-I want to be able to log in
+-So that I can purchase tickets
+
+AC
+-Can log in with valid username and password
+
+Exploratory Testing - IRB - Judge after midpoint on Day 2
