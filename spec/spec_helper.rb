@@ -1,7 +1,12 @@
 require 'rspec'
 
-SEARCH_BTN = "b-y lrg rgt not-IE6"
+SEARCH_BTN = "b-y lrg rgt not-IE6" # The Journey Planner' GO button class name
 
+# REGEX CODES
+SERVICE_DISRUPTIONS = /\w+\/service_disruptions\/today.aspx/
+DATE = /(\d{1,2}\/\d{1,2}\/\d{4})/
+# END OF REGEX CODES
+  
 RSpec.configure do|config|
   config.color = true
   config.tty = true
