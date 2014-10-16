@@ -10,6 +10,10 @@ describe "Booking a group ticket" do
     open_browser
   end
   
+  after :each do
+    return_homepage
+  end
+    
   after :all do
     close_browser
   end
