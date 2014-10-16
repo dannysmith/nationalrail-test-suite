@@ -1,4 +1,5 @@
 require 'rspec'
+require 'time'
 
 SEARCH_BTN = "b-y lrg rgt not-IE6" # The Journey Planner' GO button class name
 
@@ -39,6 +40,6 @@ def set_no_of_passengers num_of_passengers
   @b.select_list(:id, 'adults').select_value(num_of_passengers.to_s)
 end
 
-def click_fResult
+def click_first_matching_journey_result
   @b.label(:class, 'opsingle').input(:value, '4-2-1-s').click
 end

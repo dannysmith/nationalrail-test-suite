@@ -1,4 +1,4 @@
 # Rakefile
 task :pTest do
-	system 'rspec spec/purchase_spec.rb'
+	system 'rspec spec/arrivals_spec.rb'
 end
