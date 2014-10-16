@@ -29,6 +29,8 @@ end
 def set_no_of_passengers num_of_passengers
   @b.span(:class, 't').click # reveals the number of passengers option
     
+  @b.select_list(:id, 'adults').wait_until_present
+  
   @b.select_list(:id, 'adults').select_value(num_of_passengers.to_s)
 end
 

@@ -40,6 +40,4 @@ describe "Booking a group ticket" do
     @b.div(:class, 'sp-t').wait_until_present        # expects 6 x Adult
     fail unless @b.div(:class, 'sp-t').text.include? "#{NUM_OF_PASSENGERS} x Adult"
   end
-  
-  
 end
