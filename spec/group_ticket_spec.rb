@@ -1,5 +1,5 @@
-require 'watir'
 require 'spec_helper'
+require 'watir'
 
 FROM = "Richmond (London)"
 TO   = "Clapham Junction"

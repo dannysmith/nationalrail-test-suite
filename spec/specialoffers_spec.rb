@@ -1,12 +1,13 @@
-require 'watir'
 require 'spec_helper'
+require 'watir'
 
+# Tests used to verify a user being able to view 
 describe "Viewing special offers on NR" do 
-	before(:all) do 
+	before :all do 
 		open_browser
 	end
 
-	after(:all) do 
+	after :all do 
 		close_browser
 	end
 
