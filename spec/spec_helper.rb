@@ -1,4 +1,5 @@
 require 'rspec'
+require 'time'
 
 SEARCH_BTN = "b-y lrg rgt not-IE6" # The Journey Planner' GO button class name
 
