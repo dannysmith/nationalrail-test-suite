@@ -1,5 +1,5 @@
-require 'watir'
-require 'spec_helper'
+require 'watir-webdriver'
+require 'spec_helperchrome'
 require 'date'
 
 FROM = "Richmond (London)"
@@ -26,12 +26,11 @@ describe "Create and print an Itinerary on NR" do
   # To print itinerary
   it "Should be able to print itinerary" do
     @b.link(:href, "javascript:window.print()").click
-    sleep(2)
-    @b.screenshot.save("./screenshots/#{FILE}.png")
-    @b.window(:title, "Print").use do
-      b.close
-    end
-  end
+    modal = @b.modal_dialog
+    modal.button(:text => 'Cancel').click
+      modal.screenshot.save("./screenshots/#{FILE}.png")
+     
+   end
   
   
 end
