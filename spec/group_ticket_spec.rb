@@ -27,8 +27,6 @@ describe "Booking a group ticket" do
   it "Should prevent a journey if mandatory fields are not filled in" do
     enter_destinations "", FROM
     
-    set_no_of_passengers 6
-    
     confirm_journey
     
     expect(@b.url).to eq("http://ojp.nationalrail.co.uk/service/planjourney/search")
