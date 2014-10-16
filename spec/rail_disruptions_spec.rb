@@ -3,21 +3,23 @@ require 'spec_helper'
 require 'date'
 
 describe "Checking rail disruptions" do
-  before :each do
+  before :all do
     open_browser
   end
   
-  after :each do
+  after :all do
     close_browser
   end
   
-  #it "Should be able to view service disruptions" do
-   # @b.a(:href, service_disruption).click
+  it "Should be able to view service disruptions" do
+    @b.a(:href, service_disruption).click
     
-    #fail unless @b.text.include? "Service disruptions"
-  #end
+    fail unless @b.text.include? "Service disruptions"
+  end
   
   it "Service disruptions should be up-to-date" do
+    @b.goto "nationalrail.co.uk"
+    
     current_date = Date.parse(Time.now.strftime("%d/%m/%Y"))
     
     @b.a(:href, SERVICE_DISRUPTIONS).click

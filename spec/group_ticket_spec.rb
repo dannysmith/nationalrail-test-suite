@@ -6,11 +6,11 @@ TO   = "Clapham Junction"
 NUM_OF_PASSENGERS = 6
 
 describe "Booking a group ticket" do
-  before :each do
+  before :all do
     open_browser
   end
   
-  after :each do
+  after :all do
     close_browser
   end
   
@@ -35,6 +35,8 @@ describe "Booking a group ticket" do
   end
   
   it "Should allow 2 or more people to book a single journey" do
+    @b.goto "nationalrail.co.uk"
+    
     enter_destinations FROM, TO
     
     set_no_of_passengers 6
