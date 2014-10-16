@@ -1,4 +1,5 @@
 require 'rspec'
+require 'time'
 
 SEARCH_BTN = "b-y lrg rgt not-IE6" # The Journey Planner' GO button class name
 
@@ -20,6 +21,10 @@ end
 
 def close_browser
   @b.close
+end
+
+def return_homepage
+  @b.goto "nationalrail.co.uk"
 end
 
 def enter_destinations from, to
