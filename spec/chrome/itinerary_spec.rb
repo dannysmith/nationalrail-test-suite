@@ -11,6 +11,7 @@ describe "Create and print an Itinerary on NR" do
   end
   # To choose any UK location
   it "Should be able to choose any UK location" do
+    sleep 2
     enter_destinations FROM, TO
     expect(@b.text.include? "Richmond (London)")
     expect(@b.text.include? "Sutton (Surrey)")
@@ -19,17 +20,18 @@ describe "Create and print an Itinerary on NR" do
   # To create a journey itinerary
   it "Should be able to create a journey itinerary" do
     confirm_journey
-    @b.link(:id, "journeyOption0").click
+    sleep 2
+    @b.element(:id, "journeyOption0").click
     expect(@b.text.include? "Route details")
   end
   
   # To print itinerary
   it "Should be able to print itinerary" do
-    @b.link(:href, "javascript:window.print()").click
-    modal = @b.modal_dialog
-    modal.button(:text => 'Cancel').click
-      modal.screenshot.save("./screenshots/#{FILE}.png")
-     
+    sleep 2
+    @b.element(:text, "Print").click
+    @b.windows.last.use
+    @b.screenshot.save("./screenshots/#{FILE}.png")
+    expect(@b.text.include? "Print")
    end
   
   
