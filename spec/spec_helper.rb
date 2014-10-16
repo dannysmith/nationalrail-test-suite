@@ -17,6 +17,10 @@ def close_browser
   @b.close
 end
 
+def return_homepage
+  @b.goto "nationalrail.co.uk"
+end
+
 def enter_destinations from, to
   @b.text_field(:id, 'txtFrom').set(from)
   @b.text_field(:id, 'txtTo').set(to)
