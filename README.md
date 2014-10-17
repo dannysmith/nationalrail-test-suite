@@ -9,10 +9,13 @@ For use with Ruby 1.9.3
 ##### Data 
 * test_data 
 * uk_stations_list
+
 ##### Documentation
 * users stories 
 * personas 
+
 ##### Screenshots(itinerary_spec saves screenshots into this folder)
+
 ##### Spec 
 * chrome 
     - itinerary_spec 
@@ -24,6 +27,7 @@ For use with Ruby 1.9.3
     - specialoffers_spec
 * spec_helper 
 * spec_helperchrome
+
 ##### Gemfile
 ##### Rakefile
 ##### README
