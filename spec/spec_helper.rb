@@ -47,3 +47,12 @@ end
 def click_first_matching_journey_result
   @b.label(:class, 'opsingle').input(:value, '4-2-1-s').click
 end
+
+def generate_stations_list
+	@stations = []
+	
+	file = File.open('uk_stations_list.txt')
+	file.each do |line|
+		@stations.push Regexp.new line.gsub("\n", "")
+	end
+end

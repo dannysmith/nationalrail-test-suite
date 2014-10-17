@@ -5,6 +5,7 @@ require 'date'
 describe "Checking rail disruptions" do
   before :all do
     @current_date = Date.parse(Time.now.strftime("%d/%m/%Y"))
+    generate_stations_list
     open_browser
   end
   
@@ -58,7 +59,59 @@ describe "Checking rail disruptions" do
     eng_works.each do |eng_work|
       eng_works_until = Date.parse((DATE.match(eng_work.dd(:index => 1).text)).to_s)
       
-      fail unless eng_works_until - @current_date > 0
+      fail unless eng_works_until - @current_date >= 0
     end
+  end
+  
+  it "Service disruptions should be valid" do
+    @b.goto "nationalrail.co.uk/service_disruptions/today.aspx"
+    
+    disrupts_table = @b.table(:class, 'accordian-table')
+    disrupts = disrupts_table.tds(:class, 'first')
+    
+    disrupts_msgs = []
+    disrupts.each do |disrupt|
+      disrupts_msgs.push disrupt.text # expand the info pane for this disruption
+    end
+		
+	disrupts_msgs.each do |msg|
+      stations_mentioned = []
+			
+	  @stations.each do |station|
+        result = station.match msg
+				
+		if result != nil
+		  stations_mentioned.push result[0] 
+		end
+      end
+			
+	  if stations_mentioned.length > 0
+		@b.goto "nationalrail.co.uk"
+				
+		if stations_mentioned.length == 2
+					
+		  enter_destinations stations_mentioned[0], stations_mentioned[1]
+					
+		  confirm_journey
+					
+		  @b.a(:class, 'status').click
+                  
+          @b.div(:class, 'notedesc').wait_until_present
+          expect(@b.div(:class, 'notedesc').h4.text).to eq('Service Update')
+					
+        else
+					
+		  @b.text_field(:id, 'train-from').set(stations_mentioned[0])
+					
+          sleep(4)
+                  
+		  @b.button(:text, 'Show').click
+					
+          @b.div(:class, 'disruption').wait_until_present
+		  expect(@b.div(:class, 'disruption').h3.text).to eq('Service updates')
+		
+        end
+      end			
+	end
   end
 end
