@@ -47,3 +47,21 @@ end
 def click_first_matching_journey_result
   @b.label(:class, 'opsingle').input(:value, '4-2-1-s').click
 end
+
+def enter_login_details
+    @b.text_field(:id, "signinEmail").set("joebloggs@mailinator.com")
+    @b.text_field(:id, "signinPword").set("abc12345")
+    @b.button(:id, "loginNow").click
+end
+
+def enter_wrong_login_details
+    @b.text_field(:id, "signinEmail").set("joebloggs@mailinator.com")
+    @b.text_field(:id, "signinPword").set("abc1234WRONG5")
+    @b.button(:id, "loginNow").click
+end
+
+def logout
+    @b.span(:text, 'Joe Bloggs').click
+    sleep(1)
+    @b.a(:text, 'Sign out').click
+end
