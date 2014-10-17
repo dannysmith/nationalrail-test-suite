@@ -6,32 +6,32 @@ For use with Ruby 1.9.3
 
 ## Structure 
 
-#### Data 
+##### Data 
 * test_data 
 * uk_stations_list
 
-#### Documentation
+##### Documentation
 * users stories 
 * personas 
 
-#### Screenshots(itinerary_spec saves screenshots into this folder)
+##### Screenshots(itinerary_spec saves screenshots into this folder)
 
-#### Spec 
-1. chrome 
-    ..* itinerary_spec 
+##### Spec 
+* chrome 
+    - itinerary_spec 
     
-2. firefox 
-    ..* arrivals_spec 
-    ..* group_tickets_spec
-    ..* purchase_spec 
-    ..* rail_disruptions_spec 
-    ..* specialoffers_spec
+* firefox 
+    - arrivals_spec 
+    - group_tickets_spec
+    - purchase_spec 
+    - rail_disruptions_spec 
+    - specialoffers_spec
 * spec_helper 
 * spec_helperchrome
 
-#### Gemfile
-#### Rakefile
-#### README
+##### Gemfile
+##### Rakefile
+##### README
 
 
 ## How to install 
