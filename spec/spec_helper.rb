@@ -48,6 +48,7 @@ def click_first_matching_journey_result
   @b.label(:class, 'opsingle').input(:value, '4-2-1-s').click
 end
 
+<<<<<<< HEAD
 def enter_login_details
     @b.text_field(:id, "signinEmail").set("joebloggs@mailinator.com")
     @b.text_field(:id, "signinPword").set("abc12345")
@@ -64,4 +65,13 @@ def logout
     @b.span(:text, 'Joe Bloggs').click
     sleep(1)
     @b.a(:text, 'Sign out').click
+=======
+def generate_stations_list
+	@stations = []
+	
+	file = File.open('.\data\uk_stations_list.txt')
+	file.each do |line|
+		@stations.push Regexp.new line.gsub("\n", "")
+	end
+>>>>>>> e72646cb30e12571b19db51c835e684eccc63fa3
 end
