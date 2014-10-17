@@ -86,7 +86,7 @@ describe "Checking rail disruptions" do
       end
 			
 	  if stations_mentioned.length > 0
-		@b.goto "nationalrail.co.uk"
+		return_homepage
 				
 		if stations_mentioned.length == 2
 					
