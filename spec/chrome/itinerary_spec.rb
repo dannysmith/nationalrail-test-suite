@@ -5,6 +5,7 @@ require 'date'
 FROM = "Richmond (London)"
 TO   = "Sutton (Surrey)"
 FILE = DateTime.now.strftime("%d%b%Y%H%M%S")
+
 describe "Create and print an Itinerary on NR" do
   before :all do
     open_browser
@@ -38,5 +39,8 @@ describe "Create and print an Itinerary on NR" do
     @b.screenshot.save("./screenshots/#{FILE}.png")
     expect(@b.text.include? "Print")
    end
+<<<<<<< HEAD
+=======
   
+>>>>>>> 1ce33e17ecc90f1586c5121602c40cf231f9ed24
 end

@@ -67,40 +67,43 @@ describe "Checking rail disruptions" do
     @b.goto "nationalrail.co.uk/service_disruptions/today.aspx"
     
     disrupts_table = @b.table(:class, 'accordian-table')
-    disrupts = disrupts_table.tds(:class, 'first')
+    disrupts = disrupts_table.tds(:class, 'first') # turn all the service disruptions into objects
     
     disrupts_msgs = []
     disrupts.each do |disrupt|
-      disrupts_msgs.push disrupt.text # expand the info pane for this disruption
+      disrupts_msgs.push disrupt.text # store all the service disruption msgs 
     end
 		
 	disrupts_msgs.each do |msg|
       stations_mentioned = []
 			
 	  @stations.each do |station|
-        result = station.match msg
+        result = station.match msg # extract all the station names from each service disruption msg
 				
 		if result != nil
-		  stations_mentioned.push result[0] 
+		  stations_mentioned.push result[0] # store the station name/s into a list
 		end
       end
 			
 	  if stations_mentioned.length > 0
-		@b.goto "nationalrail.co.uk"
+		return_homepage
 				
 		if stations_mentioned.length == 2
-					
-		  enter_destinations stations_mentioned[0], stations_mentioned[1]
+		# if there is a disruption between two stations, set up a route between these stations			
+		  
+          enter_destinations stations_mentioned[0], stations_mentioned[1]
 					
 		  confirm_journey
 					
 		  @b.a(:class, 'status').click
           sleep(1)
           @b.div(:class, 'notedesc').wait_until_present
+          # expect a service update message for the route
           expect(@b.div(:class, 'notedesc').h4.text).to eq('Service Update')
-					
+          
         else
-					
+		# if there is a route disruption because of a single station, check the live arrivals/departures
+        # from this station..
 		  @b.text_field(:id, 'train-from').set(stations_mentioned[0])
 					
           sleep(4)
@@ -108,6 +111,7 @@ describe "Checking rail disruptions" do
 		  @b.button(:text, 'Show').click
           
           @b.div(:class, 'disruption').wait_until_present
+          # and expect a service update message for this particular station
 		  expect(@b.div(:class, 'disruption').h3.text).to eq('Service updates')
 		
         end
