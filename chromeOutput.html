@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>RSpec results</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-size: 80%;
+  }
+  </style>
+  <script type="text/javascript">
+    // <![CDATA[
+
+function addClass(element_id, classname) {
+  document.getElementById(element_id).className += (" " + classname);
+}
+
+function removeClass(element_id, classname) {
+  var elem = document.getElementById(element_id);
+  var classlist = elem.className.replace(classname,'');
+  elem.className = classlist;
+}
+
+function moveProgressBar(percentDone) {
+  document.getElementById("rspec-header").style.width = percentDone +"%";
+}
+
+function makeRed(element_id) {
+  removeClass(element_id, 'passed');
+  removeClass(element_id, 'not_implemented');
+  addClass(element_id,'failed');
+}
+
+function makeYellow(element_id) {
+  var elem = document.getElementById(element_id);
+  if (elem.className.indexOf("failed") == -1) {  // class doesn't includes failed
+    if (elem.className.indexOf("not_implemented") == -1) { // class doesn't include not_implemented
+      removeClass(element_id, 'passed');
+      addClass(element_id,'not_implemented');
+    }
+  }
+}
+
+function apply_filters() {
+  var passed_filter = document.getElementById('passed_checkbox').checked;
+  var failed_filter = document.getElementById('failed_checkbox').checked;
+  var pending_filter = document.getElementById('pending_checkbox').checked;
+
+  assign_display_style("example passed", passed_filter);
+  assign_display_style("example failed", failed_filter);
+  assign_display_style("example not_implemented", pending_filter);
+
+  assign_display_style_for_group("example_group passed", passed_filter);
+  assign_display_style_for_group("example_group not_implemented", pending_filter, pending_filter || passed_filter);
+  assign_display_style_for_group("example_group failed", failed_filter, failed_filter || pending_filter || passed_filter);
+}
+
+function get_display_style(display_flag) {
+  var style_mode = 'none';
+  if (display_flag == true) {
+    style_mode = 'block';
+  }
+  return style_mode;
+}
+
+function assign_display_style(classname, display_flag) {
+  var style_mode = get_display_style(display_flag);
+  var elems = document.getElementsByClassName(classname)
+  for (var i=0; i<elems.length;i++) {
+    elems[i].style.display = style_mode;
+  }
+}
+
+function assign_display_style_for_group(classname, display_flag, subgroup_flag) {
+  var display_style_mode = get_display_style(display_flag);
+  var subgroup_style_mode = get_display_style(subgroup_flag);
+  var elems = document.getElementsByClassName(classname)
+  for (var i=0; i<elems.length;i++) {
+    var style_mode = display_style_mode;
+    if ((display_flag != subgroup_flag) && (elems[i].getElementsByTagName('dt')[0].innerHTML.indexOf(", ") != -1)) {
+      elems[i].style.display = subgroup_style_mode;
+    } else {
+      elems[i].style.display = display_style_mode;
+    }
+  }
+}
+
+    // ]]>
+  </script>
+  <style type="text/css">
+#rspec-header {
+  background: #65C400; color: #fff; height: 4em;
+}
+
+.rspec-report h1 {
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  font-size: 1.8em;
+  position: absolute;
+}
+
+#label {
+  float:left;
+}
+
+#display-filters {
+  float:left;
+  padding: 28px 0 0 40%;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+}
+
+#summary {
+  float:right;
+  padding: 5px 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  text-align: right;
+}
+
+#summary p {
+  margin: 0 0 0 2px;
+}
+
+#summary #totals {
+  font-size: 1.2em;
+}
+
+.example_group {
+  margin: 0 10px 5px;
+  background: #fff;
+}
+
+dl {
+  margin: 0; padding: 0 0 5px;
+  font: normal 11px "Lucida Grande", Helvetica, sans-serif;
+}
+
+dt {
+  padding: 3px;
+  background: #65C400;
+  color: #fff;
+  font-weight: bold;
+}
+
+dd {
+  margin: 5px 0 5px 5px;
+  padding: 3px 3px 3px 18px;
+}
+
+dd .duration {
+  padding-left: 5px;
+  text-align: right;
+  right: 0px;
+  float:right;
+}
+
+dd.example.passed {
+  border-left: 5px solid #65C400;
+  border-bottom: 1px solid #65C400;
+  background: #DBFFB4; color: #3D7700;
+}
+
+dd.example.not_implemented {
+  border-left: 5px solid #FAF834;
+  border-bottom: 1px solid #FAF834;
+  background: #FCFB98; color: #131313;
+}
+
+dd.example.pending_fixed {
+  border-left: 5px solid #0000C2;
+  border-bottom: 1px solid #0000C2;
+  color: #0000C2; background: #D3FBFF;
+}
+
+dd.example.failed {
+  border-left: 5px solid #C20000;
+  border-bottom: 1px solid #C20000;
+  color: #C20000; background: #FFFBD3;
+}
+
+
+dt.not_implemented {
+  color: #000000; background: #FAF834;
+}
+
+dt.pending_fixed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+dt.failed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+
+#rspec-header.not_implemented {
+  color: #000000; background: #FAF834;
+}
+
+#rspec-header.pending_fixed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+#rspec-header.failed {
+  color: #FFFFFF; background: #C40D0D;
+}
+
+
+.backtrace {
+  color: #000;
+  font-size: 12px;
+}
+
+a {
+  color: #BE5C00;
+}
+
+/* Ruby code, style similar to vibrant ink */
+.ruby {
+  font-size: 12px;
+  font-family: monospace;
+  color: white;
+  background-color: black;
+  padding: 0.1em 0 0.2em 0;
+}
+
+.ruby .keyword { color: #FF6600; }
+.ruby .constant { color: #339999; }
+.ruby .attribute { color: white; }
+.ruby .global { color: white; }
+.ruby .module { color: white; }
+.ruby .class { color: white; }
+.ruby .string { color: #66FF00; }
+.ruby .ident { color: white; }
+.ruby .method { color: #FFCC00; }
+.ruby .number { color: white; }
+.ruby .char { color: white; }
+.ruby .comment { color: #9933CC; }
+.ruby .symbol { color: white; }
+.ruby .regex { color: #44B4CC; }
+.ruby .punct { color: white; }
+.ruby .escape { color: white; }
+.ruby .interp { color: white; }
+.ruby .expr { color: white; }
+
+.ruby .offending { background-color: gray; }
+.ruby .linenum {
+  width: 75px;
+  padding: 0.1em 1em 0.2em 0;
+  color: #000000;
+  background-color: #FFFBD3;
+}
+
+  </style>
+</head>
+<body>
+<div class="rspec-report">
+
+<div id="rspec-header">
+  <div id="label">
+    <h1>RSpec Code Examples</h1>
+  </div>
+
+  <div id="display-filters">
+    <input id="passed_checkbox"  name="passed_checkbox"  type="checkbox" checked="checked" onchange="apply_filters()" value="1" /> <label for="passed_checkbox">Passed</label>
+    <input id="failed_checkbox"  name="failed_checkbox"  type="checkbox" checked="checked" onchange="apply_filters()" value="2" /> <label for="failed_checkbox">Failed</label>
+    <input id="pending_checkbox" name="pending_checkbox" type="checkbox" checked="checked" onchange="apply_filters()" value="3" /> <label for="pending_checkbox">Pending</label>
+  </div>
+
+  <div id="summary">
+    <p id="totals">&#160;</p>
+    <p id="duration">&#160;</p>
+  </div>
+</div>
+
+
+<div class="results">
+<div id="div_group_1" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_1" class="passed">Live Arrival/Departures Tests</dt>
+
+Live Arrival/Departures Tests
+    <script type="text/javascript">moveProgressBar('6.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">Allow searches to different UK stations</span><span class='duration'>53.77810s</span></dd>
+[32m  Allow searches to different UK stations[0m
+    <script type="text/javascript">moveProgressBar('12.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">Show departures for Richmond station</span><span class='duration'>16.24635s</span></dd>
+[32m  Show departures for Richmond station[0m
+    <script type="text/javascript">moveProgressBar('18.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">Show arrivals for Richmond station</span><span class='duration'>19.35811s</span></dd>
+[32m  Show arrivals for Richmond station[0m
+  </dl>
+</div>
+<div id="div_group_2" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_2" class="passed">Booking a group ticket</dt>
+
+Booking a group ticket
+    <script type="text/javascript">moveProgressBar('25.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">Should prevent a journey if it has the same from and to destinations</span><span class='duration'>14.15571s</span></dd>
+[32m  Should prevent a journey if it has the same from and to destinations[0m
+    <script type="text/javascript">moveProgressBar('31.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">Should prevent a journey if mandatory fields are not filled in</span><span class='duration'>11.14964s</span></dd>
+[32m  Should prevent a journey if mandatory fields are not filled in[0m
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_2');</script>
+    <script type="text/javascript">makeRed('example_group_2');</script>
+    <script type="text/javascript">moveProgressBar('37.5');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">Should allow 2 or more people to book a single journey</span>
+      <span class="duration">48.13794s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>timed out after 30 seconds, waiting for {:class=&gt;&quot;b-i&quot;, :tag_name=&gt;&quot;div&quot;} to become present</pre></div>
+        <div class="backtrace"><pre>./spec/firefox/group_ticket_spec.rb:51:in `block (2 levels) in &lt;top (required)&gt;'</pre></div>
+    <pre class="ruby"><code><span class="linenum">49</span>    
+<span class="linenum">50</span>    <span class="comment"># IN JOURNEY SUMMARY PAGE !!! ------------------------------------------------|</span>
+<span class="offending"><span class="linenum">51</span>    <span class="instance-variable">@b</span>.div(<span class="symbol">:class</span>, <span class="string"><span class="delimiter">'</span><span class="content">b-i</span><span class="delimiter">'</span></span>).wait_until_present</span>
+<span class="linenum">52</span>    fail <span class="keyword">unless</span> <span class="instance-variable">@b</span>.div(<span class="symbol">:class</span>, <span class="string"><span class="delimiter">'</span><span class="content">b-i</span><span class="delimiter">'</span></span>).text.include? <span class="constant">FROM</span> <span class="comment"># expects Richmond </span>
+<span class="linenum">53</span>    fail <span class="keyword">unless</span> <span class="instance-variable">@b</span>.div(<span class="symbol">:class</span>, <span class="string"><span class="delimiter">'</span><span class="content">b-i</span><span class="delimiter">'</span></span>).text.include? <span class="constant">TO</span>   <span class="comment"># expects Clapham Junction</span></code></pre>
+      </div>
+    </dd>
+[31m  Should allow 2 or more people to book a single journey (FAILED - 1)[0m
+  </dl>
+</div>
+<div id="div_group_3" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_3" class="passed">Buying a return ticket on NR</dt>
+
+Buying a return ticket on NR
+    <script type="text/javascript">moveProgressBar('43.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">Can search for select journeys</span><span class='duration'>12.04036s</span></dd>
+[32m  Can search for select journeys[0m
+    <script type="text/javascript">moveProgressBar('50.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">You can buy a return ticket from these destinations</span><span class='duration'>1.23594s</span></dd>
+[32m  You can buy a return ticket from these destinations[0m
+    <script type="text/javascript">moveProgressBar('56.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">Will throw an error when time in selected before current</span><span class='duration'>12.45622s</span></dd>
+[32m  Will throw an error when time in selected before current[0m
+  </dl>
+</div>
+<div id="div_group_4" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_4" class="passed">Checking rail disruptions</dt>
+
+Checking rail disruptions
+    <script type="text/javascript">moveProgressBar('62.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">Should be able to view a list of service disruptions</span><span class='duration'>7.67581s</span></dd>
+[32m  Should be able to view a list of service disruptions[0m
+    <script type="text/javascript">moveProgressBar('68.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">Service disruptions should be up-to-date</span><span class='duration'>23.91775s</span></dd>
+[32m  Service disruptions should be up-to-date[0m
+    <script type="text/javascript">moveProgressBar('75.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">Engineering Works should be up-to-date</span><span class='duration'>26.97577s</span></dd>
+[32m  Engineering Works should be up-to-date[0m
+    <script type="text/javascript">moveProgressBar('81.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">Service disruptions should be valid</span><span class='duration'>60.24516s</span></dd>
+[32m  Service disruptions should be valid[0m
+  </dl>
+</div>
+<div id="div_group_5" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_5" class="passed">Viewing special offers on NR</dt>
+
+Viewing special offers on NR
+    <script type="text/javascript">moveProgressBar('87.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">View special offers</span><span class='duration'>10.01792s</span></dd>
+[32m  View special offers[0m
+    <script type="text/javascript">moveProgressBar('93.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">View special offers for South West Trains and check offer is in date</span><span class='duration'>16.72332s</span></dd>
+[32m  View special offers for South West Trains and check offer is in date[0m
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">View special offers and check validity against today's date</span><span class='duration'>19.05679s</span></dd>
+[32m  View special offers and check validity against today's date[0m
+  </dl>
+</div>
+
+Failures:
+
+  1) Booking a group ticket Should allow 2 or more people to book a single journey
+     [31mFailure/Error: @b.div(:class, 'b-i').wait_until_present[0m
+     [31mWatir::Wait::TimeoutError:[0m
+     [31m  timed out after 30 seconds, waiting for {:class=>"b-i", :tag_name=>"div"} to become present[0m
+     [36m# ./spec/firefox/group_ticket_spec.rb:51:in `block (2 levels) in <top (required)>'[0m
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>421.01956 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "16 examples, 1 failure";</script>
+</div>
+</div>
+</body>
+</html>
+
+Finished in 7 minutes 1 second (files took 0.31122 seconds to load)
+[31m16 examples, 1 failure[0m
+
+Failed examples:
+
+[31mrspec ./spec/firefox/group_ticket_spec.rb:39[0m [36m# Booking a group ticket Should allow 2 or more people to book a single journey[0m
