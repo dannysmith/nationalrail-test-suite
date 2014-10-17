@@ -11,8 +11,10 @@ For use with Ruby 1.9.3
 * uk_stations_list
 
 ##### Documentation
-* users stories 
-* personas 
+* users stories
+     - user story plan 
+     - personas 
+* additional notes 
 
 ##### Screenshots(itinerary_spec saves screenshots into this folder)
 
@@ -31,7 +33,6 @@ For use with Ruby 1.9.3
 ##### Gemfile
 ##### Rakefile
 ##### README
-
 
 ## How to install 
 
