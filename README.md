@@ -13,7 +13,8 @@ For use with Ruby 1.9.3
 ##### Documentation
 * users stories
      - user story plan 
-     - personas 
+     - persona 
+     - manual tests
 * additional notes 
 
 ##### Screenshots(itinerary_spec saves screenshots into this folder)
@@ -30,6 +31,8 @@ For use with Ruby 1.9.3
 * spec_helper 
 * spec_helperchrome
 
+##### firefoxOutput(shows results of firefox tests)
+##### chromeOutput(shows results of chrome tests)
 ##### Gemfile
 ##### Rakefile
 ##### README
