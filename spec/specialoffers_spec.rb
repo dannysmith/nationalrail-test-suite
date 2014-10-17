@@ -2,13 +2,11 @@ require 'spec_helper'
 <<<<<<< HEAD
 require 'date'
 
-#string = "16/10/2014"
-#date = Date.strptime(string, "%d%m%y")
-=======
-require 'watir'
->>>>>>> f3afc0996966f4321f6e245c6ea67815e7fc42ff
 
-# Tests used to verify a user being able to view 
+require 'watir'
+
+
+# Tests used to verify a user being able to view special offers on NR wesbite 
 describe "Viewing special offers on NR" do 
 	before :all do 
 		open_browser
