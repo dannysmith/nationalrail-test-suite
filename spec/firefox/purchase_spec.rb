@@ -6,6 +6,7 @@ FROM = "RMD"
 TO = "EDB"
 
 describe "Buying a return ticket on NR" do
+<<<<<<< HEAD
   before :all do
     open_browser
   end
@@ -40,4 +41,39 @@ describe "Buying a return ticket on NR" do
 
 	#expect(@b.text.include?)
   end
+=======
+	before(:all) do
+		  open_browser
+	end
+
+	it "Can search for select journeys" do
+		enter_destinations FROM, TO
+		@b.checkbox(:name, "checkbox").set
+		@b.text_field(:id, "txtDate").set "01/01/2015"
+		@b.select_list(:id, "sltHours").select_value("08")
+		@b.select_list(:id, "sltMins").select_value("30")
+		confirm_journey
+
+		expect(@b.text.include? "Richmond (London) [RMD] to Edinburgh [EDB]")
+	end
+
+	it "You can buy a return ticket from these destinations" do
+		@b.button(:id, "buyCheapestButton").click
+		expect(@b.url.include? "eastcoast")
+	end
+
+	it "Will throw an error when time in selected before current" do
+		@b.goto "nationalrail.co.uk"
+		enter_destinations FROM, TO
+		@b.text_field(:id, "txtDate").set "17/10/2014"
+		@b.select_list(:id, "sltHours").select_value("01")
+		confirm_journey
+
+		expect(@b.text.include? "Outward travel must not be in the past.")
+	end
+
+	after(:all) do
+		close_browser
+	end
+>>>>>>> 5998dcf5c4e3a209a22e8e63e6f7bd2898b8d427
 end

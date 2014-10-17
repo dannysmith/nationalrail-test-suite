@@ -28,7 +28,7 @@ describe "Create and print an Itinerary on NR" do
   
   # To print itinerary
   it "Should be able to print itinerary" do
-    sleep 2
+    sleep 1
     @b.element(:text, "Print").click
     @b.windows.last.use
     @b.screenshot.save("./screenshots/#{FILE}.png")

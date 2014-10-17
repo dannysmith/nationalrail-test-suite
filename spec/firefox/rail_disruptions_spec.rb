@@ -95,8 +95,13 @@ describe "Checking rail disruptions" do
 		  confirm_journey
 					
 		  @b.a(:class, 'status').click
+<<<<<<< HEAD
             sleep(1)
             
+=======
+          sleep(1)
+                  
+>>>>>>> 5998dcf5c4e3a209a22e8e63e6f7bd2898b8d427
           @b.div(:class, 'notedesc').wait_until_present
           expect(@b.div(:class, 'notedesc').h4.text).to eq('Service Update')
 					
@@ -107,7 +112,7 @@ describe "Checking rail disruptions" do
           sleep(4)
                   
 		  @b.button(:text, 'Show').click
-					
+          
           @b.div(:class, 'disruption').wait_until_present
 		  expect(@b.div(:class, 'disruption').h3.text).to eq('Service updates')
 		

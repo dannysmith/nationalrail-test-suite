@@ -51,7 +51,7 @@ end
 def generate_stations_list
 	@stations = []
 	
-	file = File.open('uk_stations_list.txt')
+	file = File.open('.\data\uk_stations_list.txt')
 	file.each do |line|
 		@stations.push Regexp.new line.gsub("\n", "")
 	end
