@@ -2,10 +2,6 @@
 
 This is a suite of automated tests for the national rail website written using RSpec and Watir.
 
-## Overview
-
-* Automated test cases using Rspec and Watir.
-
 ## How to install 
 
 This project uses Ruby and Watir to automate tests.
@@ -32,3 +28,4 @@ or if you want to run one test individually
 ```ruby
 rspec \spec\filetorun_spec.rb
 ```
+
