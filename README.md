@@ -1,10 +1,37 @@
 # National Rail Test Suite - Version 0.1 - 15/10/14
 
-This is a suite of automated tests for the national rail website written using RSpec and Watir.
+This is a suite of automated tests for the national rail website written using RSpec and Watir across three browsers - Firefox and Chrome. 
 
-## Overview
+For use with Ruby 1.9.3 
 
-* Automated test cases using Rspec and Watir.
+## Structure 
+
+##### Data 
+* test_data 
+* uk_stations_list
+
+##### Documentation
+* users stories 
+* personas 
+
+##### Screenshots(itinerary_spec saves screenshots into this folder)
+
+##### Spec 
+* chrome 
+    - itinerary_spec 
+* firefox 
+    - arrivals_spec 
+    - group_tickets_spec
+    - purchase_spec 
+    - rail_disruptions_spec 
+    - specialoffers_spec
+* spec_helper 
+* spec_helperchrome
+
+##### Gemfile
+##### Rakefile
+##### README
+
 
 ## How to install 
 
@@ -12,7 +39,7 @@ This project uses Ruby and Watir to automate tests.
 
 This project will use ChromeDriver. To install ChromeDriver go to [ChromeDriver download](http://chromedriver.storage.googleapis.com/index.html) and choose the correct version.
 
-Put the .exe file in your Ruby bin folder, run it from the cmdline and add the file to your PATH. You should be all set up to go.
+Put the .exe file in your Ruby bin folder, run it from the cmdline and add the file to your PATH by going to control panel - system - advanced system settings - environment variables - edit path and add file location. You should be all set up to go.
 
 #### To run
 
@@ -32,3 +59,4 @@ or if you want to run one test individually
 ```ruby
 rspec \spec\filetorun_spec.rb
 ```
+

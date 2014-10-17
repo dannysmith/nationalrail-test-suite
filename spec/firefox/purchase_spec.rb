@@ -32,10 +32,12 @@ describe "Buying a return ticket on NR" do
 
   it "Will throw an error when time in selected before current" do
 	return_homepage
+<<<<<<< HEAD
       
+=======
+>>>>>>> e95edf7989a787118edd3000fe0d675d014ef2ea
 	enter_destinations FROM, TO
-	today_date
-	@b.text_field(:id, 'txtDate').set date
+	@b.text_field(:id, 'txtDate').set "17/10/2014"
 	@b.select_list(:id, 'sltHours').select_value("01")
 	confirm_journey
 
