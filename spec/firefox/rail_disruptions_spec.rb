@@ -86,7 +86,7 @@ describe "Checking rail disruptions" do
       end
 			
 	  if stations_mentioned.length > 0
-		@b.goto "nationalrail.co.uk"
+		return_homepage
 				
 		if stations_mentioned.length == 2
 					
@@ -96,7 +96,6 @@ describe "Checking rail disruptions" do
 					
 		  @b.a(:class, 'status').click
           sleep(1)
-                  
           @b.div(:class, 'notedesc').wait_until_present
           expect(@b.div(:class, 'notedesc').h4.text).to eq('Service Update')
 					
