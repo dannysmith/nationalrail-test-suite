@@ -1,6 +1,6 @@
 # National Rail Test Suite - Version 0.1 - 15/10/14
 
-This is a suite of automated tests for the national rail website written using RSpec and Watir across three browsers - Firefox, Chrome and IE. 
+This is a suite of automated tests for the national rail website written using RSpec and Watir across three browsers - Firefox and Chrome. 
 
 For use with Ruby 1.9.3 
 
@@ -9,17 +9,13 @@ For use with Ruby 1.9.3
 ##### Data 
 * test_data 
 * uk_stations_list
-
 ##### Documentation
 * users stories 
 * personas 
-
 ##### Screenshots(itinerary_spec saves screenshots into this folder)
-
 ##### Spec 
 * chrome 
     - itinerary_spec 
-    
 * firefox 
     - arrivals_spec 
     - group_tickets_spec
@@ -28,7 +24,6 @@ For use with Ruby 1.9.3
     - specialoffers_spec
 * spec_helper 
 * spec_helperchrome
-
 ##### Gemfile
 ##### Rakefile
 ##### README
