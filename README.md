@@ -12,6 +12,7 @@ This project uses Ruby and Watir to automate tests.
 
 This project will use ChromeDriver. To install ChromeDriver go to [ChromeDriver download](http://chromedriver.storage.googleapis.com/index.html) and choose the correct version.
 
+Put the .exe file in your Ruby bin folder, run it from the cmdline and add the file to your PATH. You should be all set up to go.
 
 #### To run
 
@@ -29,5 +30,5 @@ rake chrometests
 ```
 or if you want to run one test individually
 ```ruby
-rspec .\spec\filetorun_spec.rb
+rspec \spec\filetorun_spec.rb
 ```
