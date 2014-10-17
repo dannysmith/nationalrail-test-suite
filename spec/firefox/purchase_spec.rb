@@ -29,12 +29,11 @@ describe "Buying a return ticket on NR" do
 	it "Will throw an error when time in selected before current" do
 		@b.goto "nationalrail.co.uk"
 		enter_destinations FROM, TO
-		today_date
-		@b.text_field(:id, "txtDate").set date
+		@b.text_field(:id, "txtDate").set "17/10/2014"
 		@b.select_list(:id, "sltHours").select_value("01")
 		confirm_journey
 
-		#expect(@b.text.include?)
+		expect(@b.text.include? "Outward travel must not be in the past.")
 	end
 
 	after(:all) do
