@@ -9,6 +9,10 @@ describe "Create and print an Itinerary on NR" do
   before :all do
     open_browser
   end
+  
+  after :all do
+    close_browser
+  end
 
   # To choose any UK location
   it "Should be able to choose any UK location" do
@@ -34,6 +38,5 @@ describe "Create and print an Itinerary on NR" do
     @b.screenshot.save("./screenshots/#{FILE}.png")
     expect(@b.text.include? "Print")
    end
-  
   
 end

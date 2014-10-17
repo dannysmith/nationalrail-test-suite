@@ -281,120 +281,26 @@ a {
 <div class="results">
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_1" class="passed">Live Arrival/Departures Tests</dt>
+  <dt id="example_group_1" class="passed">Create and print an Itinerary on NR</dt>
 
-Live Arrival/Departures Tests
-    <script type="text/javascript">moveProgressBar('6.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">Allow searches to different UK stations</span><span class='duration'>53.77810s</span></dd>
-[32m  Allow searches to different UK stations[0m
-    <script type="text/javascript">moveProgressBar('12.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">Show departures for Richmond station</span><span class='duration'>16.24635s</span></dd>
-[32m  Show departures for Richmond station[0m
-    <script type="text/javascript">moveProgressBar('18.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">Show arrivals for Richmond station</span><span class='duration'>19.35811s</span></dd>
-[32m  Show arrivals for Richmond station[0m
-  </dl>
-</div>
-<div id="div_group_2" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_2" class="passed">Booking a group ticket</dt>
-
-Booking a group ticket
-    <script type="text/javascript">moveProgressBar('25.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">Should prevent a journey if it has the same from and to destinations</span><span class='duration'>14.15571s</span></dd>
-[32m  Should prevent a journey if it has the same from and to destinations[0m
-    <script type="text/javascript">moveProgressBar('31.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">Should prevent a journey if mandatory fields are not filled in</span><span class='duration'>11.14964s</span></dd>
-[32m  Should prevent a journey if mandatory fields are not filled in[0m
-    <script type="text/javascript">makeRed('rspec-header');</script>
-    <script type="text/javascript">makeRed('div_group_2');</script>
-    <script type="text/javascript">makeRed('example_group_2');</script>
-    <script type="text/javascript">moveProgressBar('37.5');</script>
-    <dd class="example failed">
-      <span class="failed_spec_name">Should allow 2 or more people to book a single journey</span>
-      <span class="duration">48.13794s</span>
-      <div class="failure" id="failure_1">
-        <div class="message"><pre>timed out after 30 seconds, waiting for {:class=&gt;&quot;b-i&quot;, :tag_name=&gt;&quot;div&quot;} to become present</pre></div>
-        <div class="backtrace"><pre>./spec/firefox/group_ticket_spec.rb:51:in `block (2 levels) in &lt;top (required)&gt;'</pre></div>
-    <pre class="ruby"><code><span class="linenum">49</span>    
-<span class="linenum">50</span>    <span class="comment"># IN JOURNEY SUMMARY PAGE !!! ------------------------------------------------|</span>
-<span class="offending"><span class="linenum">51</span>    <span class="instance-variable">@b</span>.div(<span class="symbol">:class</span>, <span class="string"><span class="delimiter">'</span><span class="content">b-i</span><span class="delimiter">'</span></span>).wait_until_present</span>
-<span class="linenum">52</span>    fail <span class="keyword">unless</span> <span class="instance-variable">@b</span>.div(<span class="symbol">:class</span>, <span class="string"><span class="delimiter">'</span><span class="content">b-i</span><span class="delimiter">'</span></span>).text.include? <span class="constant">FROM</span> <span class="comment"># expects Richmond </span>
-<span class="linenum">53</span>    fail <span class="keyword">unless</span> <span class="instance-variable">@b</span>.div(<span class="symbol">:class</span>, <span class="string"><span class="delimiter">'</span><span class="content">b-i</span><span class="delimiter">'</span></span>).text.include? <span class="constant">TO</span>   <span class="comment"># expects Clapham Junction</span></code></pre>
-      </div>
-    </dd>
-[31m  Should allow 2 or more people to book a single journey (FAILED - 1)[0m
-  </dl>
-</div>
-<div id="div_group_3" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_3" class="passed">Buying a return ticket on NR</dt>
-
-Buying a return ticket on NR
-    <script type="text/javascript">moveProgressBar('43.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">Can search for select journeys</span><span class='duration'>12.04036s</span></dd>
-[32m  Can search for select journeys[0m
-    <script type="text/javascript">moveProgressBar('50.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">You can buy a return ticket from these destinations</span><span class='duration'>1.23594s</span></dd>
-[32m  You can buy a return ticket from these destinations[0m
-    <script type="text/javascript">moveProgressBar('56.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">Will throw an error when time in selected before current</span><span class='duration'>12.45622s</span></dd>
-[32m  Will throw an error when time in selected before current[0m
-  </dl>
-</div>
-<div id="div_group_4" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_4" class="passed">Checking rail disruptions</dt>
-
-Checking rail disruptions
-    <script type="text/javascript">moveProgressBar('62.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">Should be able to view a list of service disruptions</span><span class='duration'>7.67581s</span></dd>
-[32m  Should be able to view a list of service disruptions[0m
-    <script type="text/javascript">moveProgressBar('68.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">Service disruptions should be up-to-date</span><span class='duration'>23.91775s</span></dd>
-[32m  Service disruptions should be up-to-date[0m
-    <script type="text/javascript">moveProgressBar('75.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">Engineering Works should be up-to-date</span><span class='duration'>26.97577s</span></dd>
-[32m  Engineering Works should be up-to-date[0m
-    <script type="text/javascript">moveProgressBar('81.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">Service disruptions should be valid</span><span class='duration'>60.24516s</span></dd>
-[32m  Service disruptions should be valid[0m
-  </dl>
-</div>
-<div id="div_group_5" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_5" class="passed">Viewing special offers on NR</dt>
-
-Viewing special offers on NR
-    <script type="text/javascript">moveProgressBar('87.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">View special offers</span><span class='duration'>10.01792s</span></dd>
-[32m  View special offers[0m
-    <script type="text/javascript">moveProgressBar('93.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">View special offers for South West Trains and check offer is in date</span><span class='duration'>16.72332s</span></dd>
-[32m  View special offers for South West Trains and check offer is in date[0m
+Create and print an Itinerary on NR
+    <script type="text/javascript">moveProgressBar('33.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">Should be able to choose any UK location</span><span class='duration'>3.91023s</span></dd>
+[32m  Should be able to choose any UK location[0m
+    <script type="text/javascript">moveProgressBar('66.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">Should be able to create a journey itinerary</span><span class='duration'>4.84818s</span></dd>
+[32m  Should be able to create a journey itinerary[0m
     <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">View special offers and check validity against today's date</span><span class='duration'>19.05679s</span></dd>
-[32m  View special offers and check validity against today's date[0m
+    <dd class="example passed"><span class="passed_spec_name">Should be able to print itinerary</span><span class='duration'>2.38757s</span></dd>
+[32m  Should be able to print itinerary[0m
   </dl>
 </div>
-
-Failures:
-
-  1) Booking a group ticket Should allow 2 or more people to book a single journey
-     [31mFailure/Error: @b.div(:class, 'b-i').wait_until_present[0m
-     [31mWatir::Wait::TimeoutError:[0m
-     [31m  timed out after 30 seconds, waiting for {:class=>"b-i", :tag_name=>"div"} to become present[0m
-     [36m# ./spec/firefox/group_ticket_spec.rb:51:in `block (2 levels) in <top (required)>'[0m
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>421.01956 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "16 examples, 1 failure";</script>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>18.14830 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "3 examples, 0 failures";</script>
 </div>
 </div>
 </body>
 </html>
 
-Finished in 7 minutes 1 second (files took 0.31122 seconds to load)
-[31m16 examples, 1 failure[0m
-
-Failed examples:
-
-[31mrspec ./spec/firefox/group_ticket_spec.rb:39[0m [36m# Booking a group ticket Should allow 2 or more people to book a single journey[0m
+Finished in 18.15 seconds (files took 0.31881 seconds to load)
+[32m3 examples, 0 failures[0m
