@@ -95,7 +95,8 @@ describe "Checking rail disruptions" do
 		  confirm_journey
 					
 		  @b.a(:class, 'status').click
-                  
+            sleep(1)
+            
           @b.div(:class, 'notedesc').wait_until_present
           expect(@b.div(:class, 'notedesc').h4.text).to eq('Service Update')
 					

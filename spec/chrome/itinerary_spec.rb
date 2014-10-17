@@ -1,4 +1,4 @@
-require 'watir-webdriver'
+require 'watir'
 require 'spec_helperchrome'
 require 'date'
 
@@ -6,9 +6,10 @@ FROM = "Richmond (London)"
 TO   = "Sutton (Surrey)"
 FILE = DateTime.now.strftime("%d%b%Y%H%M%S")
 describe "Create and print an Itinerary on NR" do
-  before(:all) do
-  open_browser
+  before :all do
+    open_browser
   end
+
   # To choose any UK location
   it "Should be able to choose any UK location" do
     sleep 2
