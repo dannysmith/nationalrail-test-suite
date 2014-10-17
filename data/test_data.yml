@@ -1,2 +1,6 @@
 config:
   base_url: http://www.nationalrail.co.uk
+  
+arrivals:
+  - Richmond
+  - Sutton
