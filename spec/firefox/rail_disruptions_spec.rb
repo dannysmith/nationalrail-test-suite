@@ -1,5 +1,5 @@
-require 'watir'
 require 'spec_helper'
+require 'watir'
 require 'date'
 
 describe "Checking rail disruptions" do
