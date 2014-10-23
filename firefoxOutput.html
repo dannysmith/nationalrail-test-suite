@@ -284,4 +284,65 @@ a {
   <dt id="example_group_1" class="passed">Live Arrival/Departures Tests</dt>
 
 Live Arrival/Departures Tests
+    <script type="text/javascript">moveProgressBar('4.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">Allow searches to different UK stations</span><span class='duration'>84.79188s</span></dd>
+[32m  Allow searches to different UK stations[0m
+    <script type="text/javascript">moveProgressBar('9.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">Show departures for Richmond station</span><span class='duration'>67.77548s</span></dd>
+[32m  Show departures for Richmond station[0m
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_1');</script>
+    <script type="text/javascript">makeRed('example_group_1');</script>
+    <script type="text/javascript">moveProgressBar('14.2');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">Show arrivals for Richmond station</span>
+      <span class="duration">121.10420s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>Timeout::Error</pre></div>
+        <div class="backtrace"><pre>./spec/firefox/arrivals_spec.rb:71:in `block (2 levels) in &lt;top (required)&gt;'</pre></div>
+    <pre class="ruby"><code><span class="linenum">69</span>    <span class="instance-variable">@b</span>.text_field(<span class="symbol">:id</span>, <span class="string"><span class="delimiter">'</span><span class="content">train-from</span><span class="delimiter">'</span></span>).send_keys(<span class="constant">PLACE1</span>)
+<span class="linenum">70</span>    <span class="instance-variable">@b</span>.button(<span class="symbol">:id</span>, <span class="string"><span class="delimiter">'</span><span class="content">planJourney</span><span class="delimiter">'</span></span>).click
+<span class="offending"><span class="linenum">71</span>    <span class="instance-variable">@b</span>.h1(<span class="symbol">:class</span>, <span class="string"><span class="delimiter">'</span><span class="content">sifr</span><span class="delimiter">'</span></span>).wait_until_present</span>
+<span class="linenum">72</span>        
+<span class="linenum">73</span>    expect(<span class="instance-variable">@b</span>.div.li(<span class="symbol">:class</span>, <span class="string"><span class="delimiter">'</span><span class="content">arriving active</span><span class="delimiter">'</span></span>).text.include?(<span class="string"><span class="delimiter">&quot;</span><span class="content">Arriving</span><span class="delimiter">&quot;</span></span>))</code></pre>
+      </div>
+    </dd>
+[31m  Show arrivals for Richmond station (FAILED - 1)[0m
+  </dl>
+</div>
+<div id="div_group_2" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_2" class="passed">Booking a group ticket</dt>
+
+Booking a group ticket
+    <script type="text/javascript">moveProgressBar('19.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">Should prevent a journey if it has the same from and to destinations</span><span class='duration'>31.32644s</span></dd>
+[32m  Should prevent a journey if it has the same from and to destinations[0m
+    <script type="text/javascript">moveProgressBar('23.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">Should prevent a journey if mandatory fields are not filled in</span><span class='duration'>24.73932s</span></dd>
+[32m  Should prevent a journey if mandatory fields are not filled in[0m
+    <script type="text/javascript">makeRed('div_group_2');</script>
+    <script type="text/javascript">makeRed('example_group_2');</script>
+    <script type="text/javascript">moveProgressBar('28.5');</script>
+    <dd class="example failed">
+      <span class="failed_spec_name">Should allow 2 or more people to book a single journey</span>
+      <span class="duration">55.07139s</span>
+      <div class="failure" id="failure_2">
+        <div class="message"><pre>unable to locate element, using {:value=&gt;&quot;4-2-1-s&quot;, :tag_name=&gt;&quot;input&quot;}</pre></div>
+        <div class="backtrace"><pre>./spec/spec_helper.rb:46:in `click_first_matching_journey_result'
+./spec/firefox/group_ticket_spec.rb:48:in `block (2 levels) in &lt;top (required)&gt;'</pre></div>
+    <pre class="ruby"><code><span class="linenum">44</span>
+<span class="linenum">45</span><span class="keyword">def</span> <span class="function">click_first_matching_journey_result</span>
+<span class="offending"><span class="linenum">46</span>  <span class="instance-variable">@b</span>.label(<span class="symbol">:class</span>, <span class="string"><span class="delimiter">'</span><span class="content">opsingle</span><span class="delimiter">'</span></span>).input(<span class="symbol">:value</span>, <span class="string"><span class="delimiter">'</span><span class="content">4-2-1-s</span><span class="delimiter">'</span></span>).click</span>
+<span class="linenum">47</span><span class="keyword">end</span></code></pre>
+      </div>
+    </dd>
+[31m  Should allow 2 or more people to book a single journey (FAILED - 2)[0m
+  </dl>
+</div>
+<div id="div_group_3" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_3" class="passed">The National Rail website should:</dt>
+
+The National Rail website should:
 Terminate batch job (Y/N)? 
