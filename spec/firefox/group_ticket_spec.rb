@@ -48,7 +48,11 @@ describe "Booking a group ticket" do
     click_first_matching_journey_result
     
     # IN JOURNEY SUMMARY PAGE !!! ------------------------------------------------|
-    fail unless @b.div(:class, 'sp-t').when_present.text.include? "#{NUM_OF_PASSENGERS} x Adult"
-    # expects 6 x Adult
+    @b.div(:class, 'b-i').wait_until_present
+    fail unless @b.div(:class, 'b-i').text.include? FROM # expects Richmond 
+    fail unless @b.div(:class, 'b-i').text.include? TO   # expects Clapham Junction
+    
+    @b.div(:class, 'sp-t').wait_until_present            # expects 6 x Adult
+    fail unless @b.div(:class, 'sp-t').text.include? "#{NUM_OF_PASSENGERS} x Adult"
   end
 end

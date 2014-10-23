@@ -40,8 +40,10 @@ end
 
 def set_no_of_passengers num_of_passengers
   @b.span(:class, 't').click # reveals the number of passengers option
+    
+  @b.select_list(:id, 'adults').wait_until_present
   
-  @b.select_list(:id, 'adults').when_present.select_value(num_of_passengers.to_s)
+  @b.select_list(:id, 'adults').select_value(num_of_passengers.to_s)
 end
 
 def click_first_matching_journey_result
@@ -69,8 +71,8 @@ end
 def generate_stations_list
   @stations = []  
 	
-  file = File.open('.\data\uk_stations_list.txt')
-  file.each do |line|
-    @stations.push Regexp.new line.gsub("\n", "")
-  end
+	file = File.open('.\data\uk_stations_list.txt')
+	file.each do |line|
+		@stations.push Regexp.new line.gsub("\n", "")
+    end
 end
