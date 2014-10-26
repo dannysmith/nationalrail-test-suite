@@ -45,7 +45,7 @@ rake update:stations # Runs the update stations program
 ```
 ## Code Format
 This is the section which holds the code format that the coders would adjhere too and be checked against
-[Format Code](./documentation/code_format.md)
+[Format Code](code_format.md)
 
 ## Contact Details
 
