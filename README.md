@@ -39,7 +39,10 @@ or if you want to run one test individually
 ```ruby
 rspec \spec\folder\filetorun_spec.rb
 ```
-
+To pull the latest station list from Wikipedia run this:
+```ruby
+rake update:stations # Runs the update stations program
+```
 ## Code Format
 This is the section which holds the code format that the coders would adjhere too and be checked against
 [Format Code](./documentation/code_format.md)
