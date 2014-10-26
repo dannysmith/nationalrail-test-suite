@@ -1,12 +1,17 @@
-task :tests do
-  system 'rspec spec/firefox --format h > firefoxOutput.html'
-  system 'rspec spec/chrome --format h > chromeOutput.html'
-end
-
-task :chrometests do
-  system 'rspec spec/chrome --format h > chromeOutput.html'
-end
-
-task :fftests do
-  system 'rspec spec/firefox --format h > firefoxOutput.html'
+namespace :tests do
+  desc "Runs all Tests"
+    task :all do
+      system 'rspec spec/firefox --format h > reports/firefoxOutput.html'
+      system 'rspec spec/chrome --format h > reports/chromeOutput.html'
+    end
+  
+  desc "Runs Chrome Tests"
+    task :chrome do
+      system 'rspec spec/chrome --format h > reports/chromeOutput.html'
+    end
+  
+  desc "Runs Firefox Tests"
+    task :ff do
+      system 'rspec spec/firefox --format h > reports/firefoxOutput.html'
+    end
 end
