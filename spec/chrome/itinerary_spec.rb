@@ -1,14 +1,9 @@
-require 'watir'
-require 'spec_helperchrome'
-require 'date'
-
-FROM = "Richmond (London)"
-TO   = "Sutton (Surrey)"
-FILE = DateTime.now.strftime("%d%b%Y%H%M%S")
+require 'spec_helper'
 
 describe "Create and print an Itinerary on NR" do
   before :all do
-    open_browser
+    run :chrome
+    goto_homepage
   end
   
   after :all do
@@ -18,14 +13,14 @@ describe "Create and print an Itinerary on NR" do
   # To choose any UK location
   it "Should be able to choose any UK location" do
     sleep 2
-    enter_destinations FROM, TO
-    expect(@b.text.include? "Richmond (London)")
-    expect(@b.text.include? "Sutton (Surrey)")
+    enter_destinations RICHMOND, SUTTON
+    expect(@b.text.include? RICHMOND)
+    expect(@b.text.include? SUTTON)
   end
   
   # To create a journey itinerary
   it "Should be able to create a journey itinerary" do
-    confirm_journey
+    submit_journey_criteria
     sleep 2
     @b.element(:id, "journeyOption0").click
     expect(@b.text.include? "Route details")
@@ -36,11 +31,7 @@ describe "Create and print an Itinerary on NR" do
     sleep 1
     @b.element(:text, "Print").click
     @b.windows.last.use
-    @b.screenshot.save("./screenshots/#{FILE}.png")
+    @b.screenshot.save("./screenshots/#{current_time}.png")
     expect(@b.text.include? "Print")
    end
-<<<<<<< HEAD
-=======
-  
->>>>>>> 1ce33e17ecc90f1586c5121602c40cf231f9ed24
 end
