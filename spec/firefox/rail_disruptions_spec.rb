@@ -77,7 +77,7 @@ describe "Checking rail disruptions" do
 		disrupts_msgs.each do |msg|
       stations_mentioned = []
 			
-	  	@stations.each do |station|
+      @stations.each do |station|
         result = station.match msg # extract all the station names from each service disruption msg
 				
 				if result != nil
@@ -113,6 +113,6 @@ describe "Checking rail disruptions" do
 		  		expect(@b.div(:class, 'disruption').h3.text).to eq('Service updates')
         end
       end			
-		end
+    end
   end
 end
